@@ -4,7 +4,7 @@ A colorful, responsive starter web app for exploring translations between **Engl
 
 ## Open the app
 
-After GitHub Pages is enabled, visit:
+visit for the first Aramaic Translator that doesn't translate into Arabic:
 
 https://mauricecraft.github.io/Aramaic-Translator/
 
