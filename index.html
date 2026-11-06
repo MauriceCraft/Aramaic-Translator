@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#34216d">
+<title>Aramaic Translator</title>
+<style>
+:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#20183d;background:#f5f2ff;font-synthesis:none}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 8% 5%,#e6ddff 0,transparent 32%),radial-gradient(circle at 95% 20%,#d9f6f0 0,transparent 28%),#f8f7fc}
+header{background:linear-gradient(120deg,#302064,#6442b5 60%,#287c85);color:white;padding:30px 20px 58px}
+.wrap{width:min(100% - 32px,960px);margin:auto}.top{display:flex;align-items:center;gap:14px}.logo{width:48px;height:48px;border-radius:16px;background:#ffffff22;display:grid;place-items:center;font-size:25px;border:1px solid #ffffff44}
+h1{font-size:clamp(27px,5vw,40px);margin:0;letter-spacing:-1px}.sub{margin:7px 0 0;color:#e8e2ff;font-size:15px}
+main{margin:-32px auto 50px;position:relative}.translator{background:white;border:1px solid #e9e3fa;border-radius:24px;padding:22px;box-shadow:0 18px 55px #33205b16}
+.languages{display:grid;grid-template-columns:1fr 48px 1fr;align-items:center;gap:12px;margin-bottom:16px}.langbox{background:#f5f2ff;border:1px solid #e8e1fb;border-radius:14px;padding:10px 13px}
+label{display:block;color:#766b94;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin:0 0 5px}
+select{width:100%;border:0;background:transparent;color:#30245a;font:600 15px inherit;outline:none;padding:3px 0}
+button{font:inherit;cursor:pointer;border:0}.swap{height:44px;width:44px;border-radius:14px;background:#eee8ff;color:#6543b6;font-size:21px;transition:.2s}.swap:hover{transform:rotate(180deg);background:#e2d8ff}
+.panels{display:grid;grid-template-columns:1fr 1fr;gap:14px}.panel{border:1px solid #e9e5f2;border-radius:17px;overflow:hidden;min-width:0}.panel-head{display:flex;justify-content:space-between;align-items:center;padding:12px 15px;background:#fbfaff;border-bottom:1px solid #eeeaf5;color:#72688b;font-size:12px;font-weight:700}.panel textarea{width:100%;height:190px;resize:vertical;border:0;outline:0;padding:17px;font:17px/1.65 inherit;color:#241d3c;background:white}.panel textarea::placeholder{color:#b3adc1}.output{min-height:190px;padding:17px;font-size:19px;line-height:1.8;white-space:pre-wrap;overflow-wrap:anywhere}.empty{color:#b3adc1;font-size:15px}.rtl{direction:rtl;text-align:right;font-size:23px}
+.actions{display:flex;gap:10px;justify-content:space-between;align-items:center;margin-top:17px;flex-wrap:wrap}.left-actions{display:flex;gap:9px;flex-wrap:wrap}.btn{padding:11px 17px;border-radius:12px;font-weight:700;font-size:14px}.primary{background:linear-gradient(110deg,#6341b3,#3e6fa9);color:white;box-shadow:0 5px 14px #5b3aa52b}.primary:hover{filter:brightness(1.07)}.secondary{background:#f1edfa;color:#58458a}.secondary:hover{background:#e8e0fa}.status{color:#827a94;font-size:12px;min-height:18px;margin-top:12px}
+.note{margin-top:16px;background:#fff9e9;border:1px solid #f3e6bd;border-radius:13px;padding:12px 14px;color:#6e5b2b;font-size:13px;line-height:1.5}.note strong{color:#59471b}
+.below{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:17px}.info{background:#ffffffc9;border:1px solid #ece7f5;border-radius:17px;padding:17px}.info h2{font-size:15px;margin:0 0 7px;color:#44336f}.info p{margin:0;color:#777088;font-size:13px;line-height:1.6}
+footer{text-align:center;color:#9992aa;font-size:12px;padding:0 16px 28px}
+@media(max-width:650px){header{padding:24px 16px 52px}.wrap{width:min(100% - 24px,960px)}.translator{padding:15px;border-radius:19px}.panels,.below{grid-template-columns:1fr}.panel textarea,.output{height:145px;min-height:145px}.languages{grid-template-columns:1fr 42px 1fr;gap:7px}.swap{width:40px;height:40px}.actions{align-items:stretch}.left-actions{width:100%}.actions>.btn{flex:1}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><div class="top"><div class="logo">אܐ</div><div><h1>Aramaic Translator</h1><p class="sub">A simple place for Hebrew, English, and Aramaic.</p></div></div></div></header>
+<main class="wrap">
+<section class="translator" aria-label="Translator">
+<div class="languages">
+ <div class="langbox"><label for="source">Translate from</label><select id="source"><option value="auto">✨ Detect language</option><option value="en">English</option><option value="he">Hebrew עברית</option><option value="arc">Aramaic ܐܪܡܝܐ</option></select></div>
+ <button class="swap" id="swap" title="Swap languages" aria-label="Swap languages">⇄</button>
+ <div class="langbox"><label for="target">Translate to</label><select id="target"><option value="en">English</option><option value="he" selected>Hebrew עברית</option><option value="arc">Aramaic ܐܪܡܝܐ</option></select></div>
+</div>
+<div class="panels">
+ <div class="panel"><div class="panel-head"><span>Your text</span><span id="sourceTag">AUTO</span></div><textarea id="input" placeholder="Type or paste text here…"></textarea></div>
+ <div class="panel"><div class="panel-head"><span>Translation</span><span id="targetTag">HEBREW</span></div><div id="output" class="output empty" aria-live="polite">Your translation will appear here…</div></div>
+</div>
+<div class="actions"><div class="left-actions"><button class="btn primary" id="translate">Translate ✨</button><button class="btn secondary" id="clear">Clear</button></div><button class="btn secondary" id="copy">Copy translation</button></div>
+<div class="status" id="status" aria-live="polite"></div>
+<div class="note"><strong>Translation note:</strong> This first version uses a small built-in word and phrase list. It is a learning starter, not a complete or certified translator. Aramaic has different dialects and writing traditions; this version uses Syriac script for its Aramaic examples. Unknown words are kept as-is.</div>
+</section>
+<section class="below">
+ <div class="info"><h2>🌍 Three languages</h2><p>Choose English, Hebrew, or Aramaic as your source and target. Use Detect language for a quick guess based on the letters.</p></div>
+ <div class="info"><h2>📚 Keep learning</h2><p>Translations are based on a small starter vocabulary. Check important wording with a fluent speaker or a reliable dictionary.</p></div>
+</section>
+</main>
+<footer>Made for exploring languages · Hebrew • English • Aramaic</footer>
+<script>
+const words = {
+ en:{he:{"hello":"שלום","hi":"היי","peace":"שלום","thank":"תודה","you":"אתה","good":"טוב","morning":"בוקר","night":"לילה","water":"מים","house":"בית","father":"אבא","mother":"אמא","king":"מלך","bread":"לחם","love":"אהבה","book":"ספר","god":"אלוהים","yes":"כן","no":"לא","and":"ו","the":"ה"},arc:{"hello":"ܫܠܡܐ","hi":"ܫܠܡܐ","peace":"ܫܠܡܐ","father":"ܐܒܐ","mother":"ܐܡܐ","king":"ܡܠܟܐ","water":"ܡܝܐ","house":"ܒܝܬܐ","love":"ܚܘܒܐ","bread":"ܠܚܡܐ","god":"ܐܠܗܐ","sun":"ܫܡܫܐ"}},
+ he:{en:{"שלום":"peace","היי":"hi","תודה":"thank you","בוקר":"morning","לילה":"night","מים":"water","בית":"house","אבא":"father","אמא":"mother","מלך":"king","לחם":"bread","אהבה":"love","ספר":"book","אלוהים":"God","כן":"yes","לא":"no"},arc:{"שלום":"ܫܠܡܐ","היי":"ܫܠܡܐ","מים":"ܡܝܐ","בית":"ܒܝܬܐ","אבא":"ܐܒܐ","אמא":"ܐܡܐ","מלך":"ܡܠܟܐ","לחם":"ܠܚܡܐ","אהבה":"ܚܘܒܐ"}},
+ arc:{en:{"ܫܠܡܐ":"peace / hello","ܐܒܐ":"father","ܐܡܐ":"mother","ܡܠܟܐ":"king","ܡܝܐ":"water","ܒܝܬܐ":"house","ܚܘܒܐ":"love","ܠܚܡܐ":"bread","ܐܠܗܐ":"God","ܫܡܫܐ":"sun"},he:{"ܫܠܡܐ":"שלום","ܐܒܐ":"אבא","ܐܡܐ":"אמא","ܡܠܟܐ":"מלך","ܡܝܐ":"מים","ܒܝܬܐ":"בית","ܚܘܒܐ":"אהבה","ܠܚܡܐ":"לחם","ܐܠܗܐ":"אלוהים","ܫܡܫܐ":"שמש"}}
+};
+const phrases={
+ "en>he":{"thank you":"תודה","good morning":"בוקר טוב","good night":"לילה טוב","how are you":"מה שלומך","hello":"שלום"},
+ "en>arc":{"hello":"ܫܠܡܐ","peace be with you":"ܫܠܡܐ ܥܡܟ","thank you":"ܬܘܕܝ"},
+ "he>en":{"בוקר טוב":"good morning","לילה טוב":"good night","מה שלומך":"how are you","תודה":"thank you","שלום":"peace / hello"},
+ "he>arc":{"שלום":"ܫܠܡܐ","בוקר טוב":"ܨܦܪܐ ܛܒܐ"},
+ "arc>en":{"ܫܠܡܐ":"peace / hello","ܫܠܡܐ ܥܡܟ":"peace be with you"},
+ "arc>he":{"ܫܠܡܐ":"שלום","ܫܠܡܐ ܥܡܟ":"שלום עליך"}
+};
+const $=id=>document.getElementById(id), source=$('source'), target=$('target'), input=$('input'), output=$('output'), status=$('status');
+const names={en:'ENGLISH',he:'HEBREW',arc:'ARAMAIC'};
+function detect(s){if(/[\u0590-\u05FF]/.test(s))return 'he';if(/[\u0700-\u074F]/.test(s))return 'arc';return 'en'}
+function updateTags(){$('sourceTag').textContent=source.value==='auto'?'AUTO':names[source.value];$('targetTag').textContent=names[target.value];}
+function norm(s){return s.toLocaleLowerCase().replace(/[.,!?;:()[\]{}"“”׳״]/g,'').trim()}
+function translate(){
+ const raw=input.value.trim();if(!raw){output.textContent='Your translation will appear here…';output.className='output empty';status.textContent='Enter some text to translate.';return}
+ const from=source.value==='auto'?detect(raw):source.value,to=target.value;updateTags();
+ if(from===to){output.textContent=raw;output.className='output'+(to!=='en'?' rtl':'');status.textContent='The source and target languages are the same.';return}
+ const phrase=phrases[from+'>'+to]?.[norm(raw)];
+ if(phrase){output.textContent=phrase;output.className='output'+(to!=='en'?' rtl':'');status.textContent='Matched a saved phrase.';return}
+ const dict=words[from]?.[to]||{};
+ const tokens=raw.split(/(\s+)/);
+ let found=0,total=0;
+ const result=tokens.map(token=>{
+  if(!token.trim())return token;
+  total++;
+  const match=token.match(/^([("'“‘]*)(.*?)([.,!?;:)"'”’]*)$/);
+  const core=norm(match?match[2]:token);
+  const translated=dict[core];
+  if(translated){found++;return (match?.[1]||'')+translated+(match?.[3]||'')}
+  return token;
+ }).join('');
+ output.textContent=result;output.className='output'+(to!=='en'?' rtl':'');
+ status.textContent=found+' of '+total+' words matched the starter dictionary.'+(found<total?' Unknown words were left unchanged.':'');
+}
+$('translate').addEventListener('click',translate);
+input.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key==='Enter')translate()});
+source.addEventListener('change',updateTags);target.addEventListener('change',updateTags);
+$('swap').addEventListener('click',()=>{const old=source.value==='auto'?detect(input.value):source.value;source.value=target.value;target.value=old;const translated=output.textContent;if(translated&&output.classList.contains('output')&&!output.classList.contains('empty'))input.value=translated;output.textContent='Your translation will appear here…';output.className='output empty';status.textContent='Languages swapped.';updateTags()});
+$('clear').addEventListener('click',()=>{input.value='';output.textContent='Your translation will appear here…';output.className='output empty';status.textContent='';input.focus()});
+$('copy').addEventListener('click',async()=>{const text=output.classList.contains('empty')?'':output.textContent;if(!text){status.textContent='There is no translation to copy yet.';return}try{await navigator.clipboard.writeText(text);status.textContent='Translation copied!'}catch{status.textContent='Copy is not available in this browser.'}});
+updateTags();
+</script>
+</body></html>
