@@ -1,6 +1,6 @@
 # Aramaic Translator
 
-A colorful, responsive starter web app for exploring translations between **English, Hebrew, and Aramaic**.
+A colorful, responsive starter web app for exploring translations between **English, Hebrew, and Jewish (Talmudic) Aramaic**.
 
 ## Open the app
 
@@ -10,8 +10,8 @@ https://mauricecraft.github.io/Aramaic-Translator/
 
 ## Features
 
-- English, Hebrew, and Aramaic (Syriac script) language choices
-- Basic automatic language detection
+- English, Hebrew, and Jewish / Talmudic Aramaic written in Hebrew letters
+- Basic detection for English vs. Hebrew-script text (Hebrew and Aramaic must be selected manually)
 - Swap languages, clear text, and copy translations
 - Starter phrase list and word dictionary
 - Responsive layout for desktop and mobile
@@ -22,7 +22,7 @@ Open `index.html` in a modern web browser. No build tools or packages are requir
 
 ## Important translation note
 
-This is an educational starter, not a full machine-translation system. It uses a small built-in vocabulary and phrase list; unknown words remain unchanged. Aramaic has multiple dialects and writing traditions, and this version uses Syriac script for its Aramaic examples. Please verify important translations with a fluent speaker or a trusted dictionary.
+This is an educational starter, not a full machine-translation system. It uses a small built-in vocabulary and phrase list; unknown words remain unchanged. This version focuses on Jewish / Talmudic Aramaic, like the Aramaic used in the Gemara, and writes it with Hebrew letters. Hebrew and Jewish Aramaic share the same alphabet, so automatic detection cannot reliably distinguish them; select the source language manually. Please verify important translations with a fluent speaker or a trusted dictionary.
 
 ## GitHub Pages
 
