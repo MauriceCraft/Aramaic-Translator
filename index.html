@@ -25,45 +25,45 @@ footer{text-align:center;color:#9992aa;font-size:12px;padding:0 16px 28px}
 </style>
 </head>
 <body>
-<header><div class="wrap"><div class="top"><div class="logo">אܐ</div><div><h1>Aramaic Translator</h1><p class="sub">A simple place for Hebrew, English, and Aramaic.</p></div></div></div></header>
+<header><div class="wrap"><div class="top"><div class="logo">אܐ</div><div><h1>Aramaic Translator</h1><p class="sub">A translator for English, Hebrew, and Jewish (Talmudic) Aramaic.</p></div></div></div></header>
 <main class="wrap">
 <section class="translator" aria-label="Translator">
 <div class="languages">
- <div class="langbox"><label for="source">Translate from</label><select id="source"><option value="auto">✨ Detect language</option><option value="en">English</option><option value="he">Hebrew עברית</option><option value="arc">Aramaic ܐܪܡܝܐ</option></select></div>
+ <div class="langbox"><label for="source">Translate from</label><select id="source"><option value="auto">✨ Detect language</option><option value="en">English</option><option value="he">Hebrew עברית</option><option value="arc">Jewish / Talmudic Aramaic ארמית</option></select></div>
  <button class="swap" id="swap" title="Swap languages" aria-label="Swap languages">⇄</button>
  <div class="langbox"><label for="target">Translate to</label><select id="target"><option value="en">English</option><option value="he" selected>Hebrew עברית</option><option value="arc">Aramaic ܐܪܡܝܐ</option></select></div>
 </div>
 <div class="panels">
- <div class="panel"><div class="panel-head"><span>Your text</span><span id="sourceTag">AUTO</span></div><textarea id="input" placeholder="Type or paste text here…"></textarea></div>
+ <div class="panel"><div class="panel-head"><span>Your text</span><span id="sourceTag">AUTO</span></div><textarea id="input" placeholder="Try a phrase like: רב תדעו אמר הכי קאמר…"></textarea></div>
  <div class="panel"><div class="panel-head"><span>Translation</span><span id="targetTag">HEBREW</span></div><div id="output" class="output empty" aria-live="polite">Your translation will appear here…</div></div>
 </div>
 <div class="actions"><div class="left-actions"><button class="btn primary" id="translate">Translate ✨</button><button class="btn secondary" id="clear">Clear</button></div><button class="btn secondary" id="copy">Copy translation</button></div>
 <div class="status" id="status" aria-live="polite"></div>
-<div class="note"><strong>Translation note:</strong> This first version uses a small built-in word and phrase list. It is a learning starter, not a complete or certified translator. Aramaic has different dialects and writing traditions; this version uses Syriac script for its Aramaic examples. Unknown words are kept as-is.</div>
+<div class="note"><strong>Translation note:</strong> This starter focuses on Jewish / Talmudic Aramaic written in Hebrew letters, like the Aramaic of the Gemara. It is not a complete translation engine: it has a small vocabulary, and unknown words stay unchanged. Hebrew and Aramaic use the same alphabet, so choose the source language manually instead of relying on auto-detect.</div>
 </section>
 <section class="below">
- <div class="info"><h2>🌍 Three languages</h2><p>Choose English, Hebrew, or Aramaic as your source and target. Use Detect language for a quick guess based on the letters.</p></div>
+ <div class="info"><h2>🌍 Three languages</h2><p>Choose English, Hebrew, or Jewish / Talmudic Aramaic. Because Hebrew and this type of Aramaic use the same letters, auto-detect cannot reliably tell them apart.</p></div>
  <div class="info"><h2>📚 Keep learning</h2><p>Translations are based on a small starter vocabulary. Check important wording with a fluent speaker or a reliable dictionary.</p></div>
 </section>
 </main>
 <footer>Made for exploring languages · Hebrew • English • Aramaic</footer>
 <script>
 const words = {
- en:{he:{"hello":"שלום","hi":"היי","peace":"שלום","thank":"תודה","you":"אתה","good":"טוב","morning":"בוקר","night":"לילה","water":"מים","house":"בית","father":"אבא","mother":"אמא","king":"מלך","bread":"לחם","love":"אהבה","book":"ספר","god":"אלוהים","yes":"כן","no":"לא","and":"ו","the":"ה"},arc:{"hello":"ܫܠܡܐ","hi":"ܫܠܡܐ","peace":"ܫܠܡܐ","father":"ܐܒܐ","mother":"ܐܡܐ","king":"ܡܠܟܐ","water":"ܡܝܐ","house":"ܒܝܬܐ","love":"ܚܘܒܐ","bread":"ܠܚܡܐ","god":"ܐܠܗܐ","sun":"ܫܡܫܐ"}},
+ en:{he:{"hello":"שלום","hi":"היי","peace":"שלום","thank":"תודה","you":"אתה","good":"טוב","morning":"בוקר","night":"לילה","water":"מים","house":"בית","father":"אבא","mother":"אמא","king":"מלך","bread":"לחם","love":"אהבה","book":"ספר","god":"אלוהים","yes":"כן","no":"לא","and":"ו","the":"ה"},arc:{"hello":"שלמא","hi":"שלמא","peace":"שלמא","father":"אבא","mother":"אימא","king":"מלכא","water":"מיא","house":"ביתא","love":"רחימותא","bread":"לחמא","god":"אלהא","sun":"שמשא"}},
  he:{en:{"שלום":"peace","היי":"hi","תודה":"thank you","בוקר":"morning","לילה":"night","מים":"water","בית":"house","אבא":"father","אמא":"mother","מלך":"king","לחם":"bread","אהבה":"love","ספר":"book","אלוהים":"God","כן":"yes","לא":"no"},arc:{"שלום":"ܫܠܡܐ","היי":"ܫܠܡܐ","מים":"ܡܝܐ","בית":"ܒܝܬܐ","אבא":"ܐܒܐ","אמא":"ܐܡܐ","מלך":"ܡܠܟܐ","לחם":"ܠܚܡܐ","אהבה":"ܚܘܒܐ"}},
- arc:{en:{"ܫܠܡܐ":"peace / hello","ܐܒܐ":"father","ܐܡܐ":"mother","ܡܠܟܐ":"king","ܡܝܐ":"water","ܒܝܬܐ":"house","ܚܘܒܐ":"love","ܠܚܡܐ":"bread","ܐܠܗܐ":"God","ܫܡܫܐ":"sun"},he:{"ܫܠܡܐ":"שלום","ܐܒܐ":"אבא","ܐܡܐ":"אמא","ܡܠܟܐ":"מלך","ܡܝܐ":"מים","ܒܝܬܐ":"בית","ܚܘܒܐ":"אהבה","ܠܚܡܐ":"לחם","ܐܠܗܐ":"אלוהים","ܫܡܫܐ":"שמש"}}
+ arc:{en:{"שלמא":"peace / hello","אבא":"father","אימא":"mother","מלכא":"king","מיא":"water","ביתא":"house","רחימותא":"love","לחמא":"bread","אלהא":"God","שמשא":"sun"},he:{"שלמא":"שלום","אבא":"אבא","אימא":"אמא","מלכא":"מלך","מיא":"מים","ביתא":"בית","רחימותא":"אהבה","לחמא":"לחם","אלהא":"אלוהים","שמשא":"שמש"}}
 };
 const phrases={
  "en>he":{"thank you":"תודה","good morning":"בוקר טוב","good night":"לילה טוב","how are you":"מה שלומך","hello":"שלום"},
- "en>arc":{"hello":"ܫܠܡܐ","peace be with you":"ܫܠܡܐ ܥܡܟ","thank you":"ܬܘܕܝ"},
+ "en>arc":{"hello":"שלמא","peace be with you":"שלמא עלך","thank you":"תודה"},
  "he>en":{"בוקר טוב":"good morning","לילה טוב":"good night","מה שלומך":"how are you","תודה":"thank you","שלום":"peace / hello"},
- "he>arc":{"שלום":"ܫܠܡܐ","בוקר טוב":"ܨܦܪܐ ܛܒܐ"},
- "arc>en":{"ܫܠܡܐ":"peace / hello","ܫܠܡܐ ܥܡܟ":"peace be with you"},
- "arc>he":{"ܫܠܡܐ":"שלום","ܫܠܡܐ ܥܡܟ":"שלום עליך"}
+ "he>arc":{"שלום":"שלמא","בוקר טוב":"צפרא טבא"},
+ "arc>en":{"שלמא":"peace / hello","אמר הכי קאמר":"He said: this is what he meant."},
+ "arc>he":{"שלמא":"שלום","אמר הכי קאמר":"הוא אמר: כך הוא התכוון."}
 };
 const $=id=>document.getElementById(id), source=$('source'), target=$('target'), input=$('input'), output=$('output'), status=$('status');
 const names={en:'ENGLISH',he:'HEBREW',arc:'ARAMAIC'};
-function detect(s){if(/[\u0590-\u05FF]/.test(s))return 'he';if(/[\u0700-\u074F]/.test(s))return 'arc';return 'en'}
+function detect(s){if(/[\u0590-\u05FF]/.test(s))return 'he';return 'en'}
 function updateTags(){$('sourceTag').textContent=source.value==='auto'?'AUTO':names[source.value];$('targetTag').textContent=names[target.value];}
 function norm(s){return s.toLocaleLowerCase().replace(/[.,!?;:()[\]{}"“”׳״]/g,'').trim()}
 function translate(){
