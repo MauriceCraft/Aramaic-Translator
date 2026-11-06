@@ -5,15 +5,9 @@
   Explore words and phrases in English, Hebrew, and Jewish (Talmudic) Aramaic.
 </p>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/🌍-3%20Languages-6C4AB6?style=for-the-badge" alt="Three languages">
-  <img src="https://img.shields.io/badge/📱-Mobile%20Friendly-168C83?style=for-the-badge" alt="Mobile friendly">
-  <img src="https://img.shields.io/badge/✨-Open%20Source-E09B35?style=for-the-badge" alt="Open source">
-</p>
-
 ---
 
-## 🚀 Try the translator
+## Try the translator
 
 <p align="center">
   <a href="https://mauricecraft.github.io/Aramaic-Translator/">
@@ -21,7 +15,7 @@
   </a>
 </p>
 
-## 🎨 What can it do?
+## What can it do?
 
 | Feature | Description |
 | :--- | :--- |
@@ -32,7 +26,7 @@
 | 🧹 **Clear text** | Start a fresh translation |
 | 📱 **Responsive design** | Works on desktop and mobile screens |
 
-## 💬 Try these phrases
+## Try these phrases
 
 | English | Jewish / Talmudic Aramaic |
 | :--- | :--- |
@@ -44,7 +38,7 @@
 | A person | בר נש |
 | The court | בי דינא |
 
-## 🛠️ Run it on your computer
+## Run it on your computer
 
 1. Download or clone this repository.
 2. Open the `index.html` file in a modern web browser.
@@ -52,7 +46,7 @@
 
 No extra packages or build tools are needed.
 
-## ⚠️ A note about translations
+## A note about translations
 
 This is an educational starter project, **not a complete machine-translation system**. It uses a small built-in dictionary and phrase list, so unfamiliar words may stay unchanged.
 
@@ -60,7 +54,7 @@ This project focuses on **Jewish / Talmudic Aramaic**, like the Aramaic found in
 
 Please check important translations with a fluent speaker or a trusted dictionary.
 
-## 🌐 Publish with GitHub Pages
+## Publish with GitHub Pages
 
 1. Open the repository's **Settings**.
 2. Select **Pages**.
@@ -69,8 +63,3 @@ Please check important translations with a fluent speaker or a trusted dictionar
 5. Save and wait for GitHub Pages to publish the site.
 
 ---
-
-<p align="center">
-  <strong>💜 Made for learning languages and exploring Gemara Aramaic!</strong><br>
-  עברית • English • ארמית
-</p>
