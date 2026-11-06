@@ -1,29 +1,76 @@
-# Aramaic Translator
+# 🌈 Aramaic Translator
 
-A colorful, responsive starter web app for exploring translations between **English, Hebrew, and Jewish (Talmudic) Aramaic**.
+<p align="center">
+  <strong>עברית • English • ארמית</strong><br>
+  Explore words and phrases in English, Hebrew, and Jewish (Talmudic) Aramaic.
+</p>
 
-## Open the app
+<p align="center">
+  <img src="https://img.shields.io/badge/🌍-3%20Languages-6C4AB6?style=for-the-badge" alt="Three languages">
+  <img src="https://img.shields.io/badge/📱-Mobile%20Friendly-168C83?style=for-the-badge" alt="Mobile friendly">
+  <img src="https://img.shields.io/badge/✨-Open%20Source-E09B35?style=for-the-badge" alt="Open source">
+</p>
 
-visit for the first Aramaic Translator that doesn't translate into Arabic:
+---
 
-https://mauricecraft.github.io/Aramaic-Translator/
+## 🚀 Try the translator
 
-## Features
+<p align="center">
+  <a href="https://mauricecraft.github.io/Aramaic-Translator/">
+    <img src="https://img.shields.io/badge/OPEN%20TRANSLATOR-6341B3?style=for-the-badge&logo=googletranslate&logoColor=white" alt="Open translator">
+  </a>
+</p>
 
-- English, Hebrew, and Jewish / Talmudic Aramaic written in Hebrew letters
-- Basic detection for English vs. Hebrew-script text (Hebrew and Aramaic must be selected manually)
-- Swap languages, clear text, and copy translations
-- Starter phrase list and word dictionary
-- Responsive layout for desktop and mobile
+## 🎨 What can it do?
 
-## Run locally
+| Feature | Description |
+| :--- | :--- |
+| 🌐 **Three languages** | English, Hebrew, and Jewish / Talmudic Aramaic |
+| 📜 **Gemara-style Aramaic** | Aramaic written with Hebrew letters |
+| 🔄 **Swap languages** | Quickly switch the source and target |
+| 📋 **Copy translation** | Copy the translated text |
+| 🧹 **Clear text** | Start a fresh translation |
+| 📱 **Responsive design** | Works on desktop and mobile screens |
 
-Open `index.html` in a modern web browser. No build tools or packages are required.
+## 💬 Try these phrases
 
-## Important translation note
+| English | Jewish / Talmudic Aramaic |
+| :--- | :--- |
+| Hello | שלמא |
+| He said | אמר |
+| What did he say? | מאי אמר |
+| This is what he meant | הכי קאמר |
+| Written | דכתיב |
+| A person | בר נש |
+| The court | בי דינא |
 
-This is an educational starter, not a full machine-translation system. It uses a small built-in vocabulary and phrase list; unknown words remain unchanged. This version focuses on Jewish / Talmudic Aramaic, like the Aramaic used in the Gemara, and writes it with Hebrew letters. Hebrew and Jewish Aramaic share the same alphabet, so automatic detection cannot reliably distinguish them; select the source language manually. Please verify important translations with a fluent speaker or a trusted dictionary.
+## 🛠️ Run it on your computer
 
-## GitHub Pages
+1. Download or clone this repository.
+2. Open the `index.html` file in a modern web browser.
+3. Start translating!
 
-In the repository, open **Settings → Pages**, choose **Deploy from a branch**, select **main** and **/(root)**, then save. GitHub will publish the site at the address above once deployment finishes.
+No extra packages or build tools are needed.
+
+## ⚠️ A note about translations
+
+This is an educational starter project, **not a complete machine-translation system**. It uses a small built-in dictionary and phrase list, so unfamiliar words may stay unchanged.
+
+This project focuses on **Jewish / Talmudic Aramaic**, like the Aramaic found in the Gemara, written in Hebrew letters—not Arabic. Hebrew and Aramaic share the same alphabet, so choose the source language manually when needed.
+
+Please check important translations with a fluent speaker or a trusted dictionary.
+
+## 🌐 Publish with GitHub Pages
+
+1. Open the repository's **Settings**.
+2. Select **Pages**.
+3. Under the build source, choose **Deploy from a branch**.
+4. Select the `main` branch and `/(root)` folder.
+5. Save and wait for GitHub Pages to publish the site.
+
+---
+
+<p align="center">
+  <strong>💜 Made for learning languages and exploring Gemara Aramaic!</strong><br>
+  עברית • English • ארמית
+</p>
